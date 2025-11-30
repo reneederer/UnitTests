@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Sample.fs" />
+    <Compile Include="bhbesuchsplanung_v7.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
 

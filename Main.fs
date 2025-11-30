@@ -1,15 +1,6 @@
 ﻿module UnitTests
 open Expecto
 open System.IO
-
-open System
-open System.Diagnostics
-open System.Management
-
-open System
-open System.Management
-
-open System
 open System.Diagnostics
 open System.Management
 
@@ -50,27 +41,19 @@ let isStartedByDotnetWatch () =
             c.Contains("dotnet-watch") ||
             c.Contains("microsoft.dotnet.watcher")
 
-
-
-
-
-
-
-
-
-
-
-
-
 [<EntryPoint>]
 let main argv =
+    for i in 1..argv.Length - 1 do
+      if argv[i-1].StartsWith "--filter" then
+          argv[i] <- $"(?i){argv[i]}"
+    
     let mutable exitCode = 0
+
     let w = new FileSystemWatcher("c:/users/renee/source/repos", "*.txt")
     w.EnableRaisingEvents <- true
     w.IncludeSubdirectories <- false
     w.NotifyFilter <- NotifyFilters.LastWrite
     w.Changed.Add(fun e ->
-        printfn $"{e}"
         exitCode <- Tests.runTestsInAssemblyWithCLIArgs [] argv
     )
 
@@ -78,8 +61,6 @@ let main argv =
     if isStartedByDotnetWatch() then
         while true do
             System.Threading.Thread.Sleep 1000
-            printfn "running"
-    printfn $"finished"
     exitCode
 
 
