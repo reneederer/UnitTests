@@ -43,17 +43,13 @@ let isStartedByDotnetWatch () =
 
 [<EntryPoint>]
 let main argv =
-    for i in 1..argv.Length - 1 do
-      if argv[i-1].StartsWith "--filter" then
-          argv[i] <- $"(?i){argv[i]}"
-    
     let mutable exitCode = 0
 
     let w = new FileSystemWatcher("c:/users/renee/source/repos", "*.txt")
     w.EnableRaisingEvents <- true
     w.IncludeSubdirectories <- false
     w.NotifyFilter <- NotifyFilters.LastWrite
-    w.Changed.Add(fun e ->
+    w.Changed.Add(fun evt ->
         exitCode <- Tests.runTestsInAssemblyWithCLIArgs [] argv
     )
 

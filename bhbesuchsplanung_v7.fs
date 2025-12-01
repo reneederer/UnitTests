@@ -1,4 +1,4 @@
-module Sample
+module bhbesuchsplanung_v7
 
 open Expecto
 

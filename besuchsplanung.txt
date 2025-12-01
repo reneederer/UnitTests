@@ -1,0 +1,35 @@
+Einzelne Leistung:
+    Eine Leistung findet für einen bestimmten Klienten
+    an einem bestimmten Tag und in einem bestimmten Zeitbereich statt.
+    Zu einer Einzelleistung kann eine Bemerkung erfasst werden.
+    Eine Leistung gehört zu einem oder mehreren Besuchen.
+
+Leistungsserie:
+    Eine Leistung wiederholt sich während des Zeitraums
+    ab einem bestimmten Datum periodisch auf eine der folgenden Arten:
+        - täglich
+        - mehrmals täglich
+        - wöchentlich
+        - mehrmals wöchentlich, an bestimmten Tagen
+        - 2-wöchentlich
+        - 3-wöchentlich
+    Durch die periodische Wiederholung einer Leistung ergibt sich eine Leistungsserie.
+    Zu einer Leistungsserie kann eine Bemerkung erfasst werden.
+
+Einzelner Besuch:
+    Ein Besuch findet für einen bestimmten Klienten an einem bestimmten Tag und in einem bestimmten Zeitbereich statt.
+    In einem Zeitbereich finden 0..N Besuche statt.
+    Innerhalb eines Zeitbereichs haben Besuche eine eindeutige Position, beginnend bei 1.
+    Zu einem Einzelbesuch kann eine Bemerkung erfasst werden.
+    In einem Besuch werden 1..N Leistungen erbracht.
+    Ein Besuch beinhaltet genau diejenigen Leistungen,
+    die zum/zur selben Klienten, Datum, Zeitbereich und Besuchsposition wie dieser Besuch gehören.
+
+Besuchsserie:
+    Besuche wiederholen sich wöchentlich innerhalb des Zeitraums. Dadurch entsteht eine Besuchsserie.
+    Durch die wöchentliche Wiederholung wird der Besuchsserie ein Wochentag eindeutig zugeordnet.
+    Zu einer Besuchsserie kann eine Bemerkung erfasst werden.
+    Zu einer Besuchsserie gehören genau diejenigen Leistungen, die
+    zum/zur selben Klienten, Zeitbereich und Besuchsposition gehören wie der Besuch,
+    und zusätzlich das Beginndatum der Leistung am gleichen Wochentag wie die Besuchsserie liegt.
+    

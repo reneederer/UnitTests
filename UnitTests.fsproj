@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="bhvvertraege_v7.fs" />
     <Compile Include="bhbesuchsplanung_v7.fs" />
     <Compile Include="Main.fs" />
   </ItemGroup>
